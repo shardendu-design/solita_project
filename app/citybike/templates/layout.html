@@ -11,16 +11,16 @@
         <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/todoname.css') }}">
+        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/todoname.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/create_todo.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/tododelete.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/tododelete.css') }}"> -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/msgBox.css') }}">
 
-        <script src="{{ url_for('static', filename='js/hamburgmenu.js') }}"></script>
+        <!-- <script src="{{ url_for('static', filename='js/hamburgmenu.js') }}"></script>
         <script src="{{ url_for('static', filename='js/delconmessage.js') }}"></script>
         <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
         <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/msgBox.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/msgBox.js') }}"></script> -->
 </head>
 {% block body %}
 
@@ -43,25 +43,7 @@
 
                 <a class="active" href="{{ url_for('main.display_dashboard') }}">CITY BIKE JOURNEYS PROJECT</a>
                 
-                <div class="socialmedia">
-
-<!--                    <a href="{{ url_for('authentication.signup') }}"><i class="fa fa-registered"></i> SignUp </a>-->
-                    {% if current_user.is_authenticated %}
-
-                        <a href="{{ url_for('authentication.log_out_user')}}"><i class="fa fa-sign-in"></i> Sign Out </a>
-                    {% else %} 
-                        <a href="{{ url_for('authentication.do_the_login')}}"><i class="fa fa-registered"></i> Sign In </a>
-                    {% endif %}
-
-                    <a href="">
-                        {%  if current_user.is_authenticated %}
-                            LoggedIn as <b style="color: deeppink">{{ current_user.user_name.title() }}</b>
-                        {% else %}
-                            Not LoggedIn
-                        {% endif %}
-                    </a>
-
-
+                
                 </div>
                 
 
@@ -77,7 +59,7 @@
             <!-- The sidebar -->
                 <div class="sidebar">
                     <a href="{{ url_for('main.display_todo_name')}}"><i></i> City Bike Journeys List </a>
-                    <a href="{{ url_for('main.create_todo')}}">Create City Bike Journeys</a>
+                    
 
                     
                 </div>
@@ -96,7 +78,7 @@
             <footer>
                 <div id="footer">
                     <hr>
-                    <p class="text-center small"> City Bike Journeys Project &copy;	| 2022 </p>
+                    <p class="text-center small"> City Bike Journeys Project &copy;	| 2023 </p>
                     <hr>
                 </div>
             </footer>
