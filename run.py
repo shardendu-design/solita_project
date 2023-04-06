@@ -1,4 +1,4 @@
-from app import create_app, db
+from app import create_app
 
 
 
@@ -7,5 +7,5 @@ if __name__ == '__main__':
     # with flask_app.app_context():
     #     db.create_all()
 
-    flask_app.run(host="localhost", port=8888, debug=True)
+    flask_app.run(host="localhost", port=8080, debug=True)
     
