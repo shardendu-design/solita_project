@@ -1,6 +1,7 @@
 # import all the necessary library
 
 from app.citybike import main
+from app.citybike.models import Citybike
 from app import db
 from flask import render_template, request, flash, redirect, url_for
 
@@ -10,13 +11,14 @@ from flask import render_template, request, flash, redirect, url_for
 @main.route('/journey')
 
 def display_todo_name():
-    todo_names = citybiketable.query.all()
-    return render_template('citibyke_list.html', todo_names=todo_names)
+    
+    citybike_list = Citybike.query.all()
+    return render_template('citibyike_list.html', citybike_list=citybike_list)
 
 # home page display
 
 
-@main.route('/dashboard')
+@main.route('/')
 
 def display_dashboard():
     return render_template('home.html')
