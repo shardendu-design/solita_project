@@ -4,16 +4,21 @@ from app.citybike import main
 from app.citybike.models import Citybike
 from app import db
 from flask import render_template, request, flash, redirect, url_for
+from flask_sqlalchemy import pagination 
 
 
 
 # company list display
 @main.route('/journey')
 
-def display_todo_name():
-    
-    citybike_list = Citybike.query.all()
+def display_citybike_details():
+    page = request.args.get('page', 1, type=int)
+    citybike_list = Citybike.query.paginate(page=page, per_page=100)
     return render_template('citibyike_list.html', citybike_list=citybike_list)
+    
+    # citybike_list = Citybike.query.all()
+    # return render_template('citibyike_list.html', citybike_list=citybike_list)
+
 
 # home page display
 

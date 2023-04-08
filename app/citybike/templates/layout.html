@@ -5,22 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Bike Journeys</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
-        <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/todoname.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/create_todo.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/tododelete.css') }}"> -->
-        <link rel="stylesheet" href="{{ url_for('static', filename='css/msgBox.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/msgBox.css') }}">
 
-        <!-- <script src="{{ url_for('static', filename='js/hamburgmenu.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/delconmessage.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='js/msgBox.js') }}"></script> -->
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+
+        <title>{% block title %}Flask Pagination{% endblock %}</title>
 </head>
 {% block body %}
 
@@ -58,7 +60,7 @@
             {% block sidebar %}
             <!-- The sidebar -->
                 <div class="sidebar">
-                    <a href="{{ url_for('main.display_todo_name')}}"><i></i> City Bike Journeys List </a>
+                    <a href="{{ url_for('main.display_citybike_details')}}"><i></i> City Bike Journeys List </a>
                     
 
                     
