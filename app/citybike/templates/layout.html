@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Sansita&display=swap" rel="stylesheet">
@@ -43,12 +43,9 @@
             {% block navbar %}
             <div class="topnav" id="myTopnav">
 
-                <a class="active" href="{{ url_for('main.display_dashboard') }}">CITY BIKE JOURNEYS PROJECT</a>
-                
+                <a class="active" href="{{ url_for('main.display_citybike_details') }}">CITY BIKE JOURNEYS PROJECT</a>    
                 
                 </div>
-                
-
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i class="fa fa-bars"></i>
                 </a>
@@ -57,22 +54,9 @@
              
             {% endblock navbar %}
 
-            {% block sidebar %}
-            <!-- The sidebar -->
-                <div class="sidebar">
-                    <a href="{{ url_for('main.display_citybike_details')}}"><i></i> City Bike Journeys List </a>
-                    
 
-                    
-                </div>
-            {% endblock sidebar %}
-
-            
-    
             {# empty block for custom content #}
             {% block content %} {% endblock content %}
-
-            
 
     
             {# footer #}

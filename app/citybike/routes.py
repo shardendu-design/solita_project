@@ -9,26 +9,12 @@ from flask_sqlalchemy import pagination
 
 
 # company list display
-@main.route('/journey')
+@main.route('/')
 
 def display_citybike_details():
     page = request.args.get('page', 1, type=int)
-    citybike_list = Citybike.query.paginate(page=page, per_page=100)
+    citybike_list = Citybike.query.paginate(page=page, per_page=10)
     return render_template('citibyike_list.html', citybike_list=citybike_list)
-    
-    # citybike_list = Citybike.query.all()
-    # return render_template('citibyike_list.html', citybike_list=citybike_list)
-
-
-# home page display
-
-
-@main.route('/')
-
-def display_dashboard():
-    return render_template('home.html')
-
-# route error handling
 
 @main.app_errorhandler(404)
 def page_not_found(error):

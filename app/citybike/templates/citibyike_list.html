@@ -2,13 +2,18 @@
 
 
     {% block content %}
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}"> -->
-
+    
         <div id="" class="container-fluid">
           <br>
 
-            <h2 class="company_name_heading">CITY BIKE LIST</h2>
+            <h2 class="company_name_heading">LIST OF JOURNEYS</h2>
           <br>
+          <div>
+            <a href="" class="btn btn-primary">Station list</a>
+          </div>
+          <div>
+            <a href="" class="btn btn-primary">Single station view</a>
+          </div>
             
             <div class="table table-bordered">
               
@@ -50,7 +55,7 @@
           {% if citybike_list.has_next %}
           <a href="{{ url_for('main.display_citybike_details', page=citybike_list.next_num) }}" class="btn btn-primary">Next</a>
           {% endif %}
-
-
                        
 {% endblock %}
+
+         
