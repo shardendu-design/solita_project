@@ -14,6 +14,7 @@ from flask_sqlalchemy import pagination
 def display_citybike_details():
     page = request.args.get('page', 1, type=int)
     citybike_list = Citybike.query.paginate(page=page, per_page=10)
+    
     return render_template('citibyike_list.html', citybike_list=citybike_list)
 
 @main.app_errorhandler(404)

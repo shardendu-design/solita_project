@@ -17,3 +17,14 @@ class Citybike(db.Model):
     return_station_name = db.Column(db.Text)
     covered_distance_m = db.Column(db.Float)
     duration_sec = db.Column(db.Integer)
+
+    # Define a property that returns the duration in minutes
+    @property 
+    def duration_in_minutes(self):
+        return '{:.2f}'.format(self.duration_sec / 60)
+    
+    @property
+    def covered_distance_km(self):
+        kilometers = self.covered_distance_m / 1000
+        return '{:.2f}'.format(kilometers)
+
