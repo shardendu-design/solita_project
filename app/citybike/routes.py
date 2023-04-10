@@ -17,6 +17,12 @@ def display_citybike_details():
     
     return render_template('citibyike_list.html', citybike_list=citybike_list)
 
+@main.route('/stationlist')
+def display_station_list():
+    page = request.args.get('page', 1, type=int)
+    station_list = Citybike.query.paginate(page=page, per_page=10)
+    return render_template('list_all_station.html', station_list=station_list)
+
 @main.app_errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404

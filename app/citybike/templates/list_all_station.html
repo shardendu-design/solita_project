@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+
+    {% block content %}
+
+
+    <div id="" class="container-fluid">
+        <br>
+
+          <h2 class="company_name_heading">STATION LIST</h2>
+        <br>
+       
+          
+          <div class="table table-bordered">
+            
+            <table class="table">
+              <thead class="">
+                <tr>
+                  <!-- <th scope="col">Departure</th>
+                  <th scope="col">Return</th> -->
+                  <th scope="col">Departure station id</th>
+                  <th scope="col">Departure station name</th>
+                  <th scope="col">Return station id</th>
+                  <th scope="col">Return station name</th>
+                  <!-- <th scope="col">Covered distance (Km)</th>
+                  <th scope="col">Duration (min.)</th> -->
+                </tr>
+              </thead>
+              <tbody>
+                  {% for list in station_list  %}
+                     <tr>
+                       <!-- <td>{{list.departure}}</td>
+                       <td>{{list.returns}}</td> -->
+                       <td>{{list.departure_station_id}}</td>
+                       <td>{{list.departure_station_name}}</td>
+                       <td>{{list.return_station_id}}</td>
+                       <td>{{list.return_station_name}}</td>
+                       <!-- <td>{{list.covered_distance_km}}</td>
+                       <td>{{list.duration_in_minutes}}</td> -->
+                     </tr>
+                   {% endfor %}
+             </tbody>
+            </table>  
+          </div>    
+        </div>
+
+        <div style="text-align: center;">
+          {% if station_list.has_prev %}
+        
+          <a href="{{ url_for('main.display_station_list', page=station_list.prev_num) }}" class="btn btn-primary">Previous</a>
+
+    
+        {% endif %}
+
+        {% if station_list.has_next %}
+        
+          <a href="{{ url_for('main.display_station_list', page=station_list.next_num) }}" class="btn btn-primary">Next</a>
+
+        {% endif %}
+
+        </div>
+
+
+    
+{% endblock %}
