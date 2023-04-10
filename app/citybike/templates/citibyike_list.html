@@ -43,13 +43,40 @@
             </div>    
           </div>
 
-          {% if citybike_list.has_prev %}
-          <a href="{{ url_for('main.display_citybike_details', page=citybike_list.prev_num) }}" class="btn btn-primary">Previous</a>
+          <div style="text-align: center;">
+            {% if citybike_list.has_prev %}
+          
+            <a href="{{ url_for('main.display_citybike_details', page=citybike_list.prev_num) }}" class="btn btn-primary">Previous</a>
+
+      
           {% endif %}
 
           {% if citybike_list.has_next %}
-          <a href="{{ url_for('main.display_citybike_details', page=citybike_list.next_num) }}" class="btn btn-primary">Next</a>
+          
+            <a href="{{ url_for('main.display_citybike_details', page=citybike_list.next_num) }}" class="btn btn-primary">Next</a>
+
+          
+          
           {% endif %}
+
+
+          </div>
+
+          <!-- {% if citybike_list.has_prev %}
+          <div style="text-align: center;">
+            <a href="{{ url_for('main.display_citybike_details', page=citybike_list.prev_num) }}" class="btn btn-primary">Previous</a>
+
+          </div>
+          
+          {% endif %}
+
+          {% if citybike_list.has_next %}
+          <div style="text-align: center;">
+            <a href="{{ url_for('main.display_citybike_details', page=citybike_list.next_num) }}" class="btn btn-primary">Next</a>
+
+          </div>
+          
+          {% endif %} -->
                        
 {% endblock %}
 
