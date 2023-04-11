@@ -17,9 +17,9 @@
               <thead class="">
                 <tr>
                   
-                  <th scope="col">Departure station name</th>
-                  <th scope="col">Return station name</th>
+                  <th scope="col">Departure Station Name</th>
                   <th scope="col">Departure Count</th>
+                  <th scope="col">Return Station Name</th>
                   <th scope="col">Return Count</th>
                 </tr>
               </thead>
@@ -28,8 +28,8 @@
                      <tr>
                       
                        <td>{{trip.departure_station_name}}</td>
-                       <td>{{trip.return_station_name}}</td>
                        <td>{{station_counts[trip.departure_station_id]['departure_count'] }}</td>
+                       <td>{{trip.return_station_name}}</td>
                        <td>{{station_counts[trip.return_station_id]['return_count']}}</td>
                        
                      </tr>
