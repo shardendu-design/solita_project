@@ -27,4 +27,13 @@ class Citybike(db.Model):
     def covered_distance_km(self):
         kilometers = self.covered_distance_m / 1000
         return '{:.2f}'.format(kilometers)
-
+    
+    @staticmethod
+    def get_departure_count(station_id):
+        return Citybike.query.filter_by(departure_station_id=station_id).count()
+    
+    
+    
+    @staticmethod
+    def get_return_count(station_id):
+        return Citybike.query.filter_by(return_station_id=station_id).count()

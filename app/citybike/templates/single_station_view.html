@@ -1,0 +1,60 @@
+{% extends 'layout.html' %}
+
+
+    {% block content %}
+
+
+    <div id="" class="container-fluid">
+        <br>
+
+          <h2 class="company_name_heading">SINGLE STATION VIEW</h2>
+        <br>
+       
+          
+          <div class="table table-bordered">
+            
+            <table class="table">
+              <thead class="">
+                <tr>
+                  
+                  <th scope="col">Departure station name</th>
+                  <th scope="col">Return station name</th>
+                  <th scope="col">Departure Count</th>
+                  <th scope="col">Return Count</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for trip in single_station_view.items  %}
+                     <tr>
+                      
+                       <td>{{trip.departure_station_name}}</td>
+                       <td>{{trip.return_station_name}}</td>
+                       <td>{{station_counts[trip.departure_station_id]['departure_count'] }}</td>
+                       <td>{{station_counts[trip.return_station_id]['return_count']}}</td>
+                       
+                     </tr>
+                   {% endfor %}
+             </tbody>
+            </table>  
+          </div>    
+        </div>
+
+        <div style="text-align: center;">
+          {% if single_station_view.has_prev %}
+        
+          <a href="{{ url_for('main.display_single_station_view', page=single_station_view.prev_num) }}" class="btn btn-primary">Previous</a>
+
+    
+        {% endif %}
+
+        {% if single_station_view.has_next %}
+        
+          <a href="{{ url_for('main.display_single_station_view', page=single_station_view.next_num) }}" class="btn btn-primary">Next</a>
+
+        {% endif %}
+
+        </div>
+
+
+    
+{% endblock %}
