@@ -47,6 +47,20 @@ def departure_search():
         single_station_wise = Citybike.query.paginate(page=page, per_page=10)
 
     return render_template('search_departure_wise.html', single_station_wise=single_station_wise)
+
+@main.route('/returnsearch')
+def return_search():
+    page = request.args.get('page', 1, type=int)
+    station_id = request.args.get('station_id',type=int)
+    if station_id:
+        single_station_idwise = Citybike.query.filter_by(return_station_id=station_id).paginate(page=page, per_page=10)
+    else:
+        single_station_idwise = Citybike.query.paginate(page=page, per_page=10)
+
+    return render_template('search_return_wise.html', single_station_idwise=single_station_idwise)
+
+
+
     
 @main.app_errorhandler(404)
 def page_not_found(error):
