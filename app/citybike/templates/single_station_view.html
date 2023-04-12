@@ -43,9 +43,18 @@
           {% if single_station_view.has_prev %}
         
           <a href="{{ url_for('main.display_single_station_view', page=single_station_view.prev_num) }}" class="btn btn-primary">Previous</a>
-
-    
         {% endif %}
+        {% for num in single_station_view.iter_pages(left_edge=1, left_current=2, right_current=2, right_edge=1) %}
+          {% if num %}
+            {% if num != single_station_view.page %}
+              <a href="{{ url_for('main.display_single_station_view', page=num, station_id=request.args.get('station_id')) }}">{{ num }}</a>
+            {% else %}
+              <strong>{{ num }}</strong>
+            {% endif %}
+          {% else %}
+            <span>...</span>
+          {% endif %}
+        {% endfor %}
 
         {% if single_station_view.has_next %}
         

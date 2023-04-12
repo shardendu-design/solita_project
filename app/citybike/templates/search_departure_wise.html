@@ -2,7 +2,7 @@
 
 
     {% block content %}
-      <hr>
+      
       <div id="" class="container-fluid">
         <h5>Please Enter Departure Station Id</h5>
 
@@ -49,9 +49,10 @@
           </div>    
         </div>
 
-      <div>
+      <div style="text-align: center;">
         {% if single_station_wise.has_prev %}
-          <a href="{{ url_for('main.departure_search', page=single_station_wise.prev_num, station_id=request.args.get('station_id')) }}">Previous</a>
+          <a href="{{ url_for('main.departure_search', page=single_station_wise.prev_num,station_id=request.args.get('station_id')) }}" class="btn btn-primary">Previous</a>
+          
         {% endif %}
       
         {% for num in single_station_wise.iter_pages(left_edge=1, left_current=2, right_current=2, right_edge=1) %}
@@ -67,7 +68,8 @@
         {% endfor %}
       
         {% if single_station_wise.has_next %}
-          <a href="{{ url_for('main.departure_search', page=single_station_wise.next_num, station_id=request.args.get('station_id')) }}">Next</a>
+          <a href="{{ url_for('main.departure_search', page=single_station_wise.next_num,station_id=request.args.get('station_id')) }}" class="btn btn-primary">Next</a>
+         
         {% endif %}
       </div>
     

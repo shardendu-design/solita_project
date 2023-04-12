@@ -6,7 +6,7 @@
         <div id="" class="container-fluid">
           <br>
 
-            <h2 class="company_name_heading">LIST OF JOURNEYS</h2>
+            <h2 class="company_name_heading">List Of Journeys</h2>
           <br>
          
             
@@ -48,8 +48,18 @@
           
             <a href="{{ url_for('main.display_citybike_details', page=citybike_list.prev_num) }}" class="btn btn-primary">Previous</a>
 
-      
           {% endif %}
+          {% for num in citybike_list.iter_pages(left_edge=1, left_current=2, right_current=2, right_edge=1) %}
+          {% if num %}
+            {% if num != citybike_list.page %}
+              <a href="{{ url_for('main.display_citybike_details', page=num, station_id=request.args.get('station_id')) }}">{{ num }}</a>
+            {% else %}
+              <strong>{{ num }}</strong>
+            {% endif %}
+          {% else %}
+            <span>...</span>
+          {% endif %}
+        {% endfor %}
 
           {% if citybike_list.has_next %}
           
