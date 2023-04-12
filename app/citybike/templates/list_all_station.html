@@ -7,7 +7,7 @@
     <div id="" class="container-fluid">
         <br>
 
-          <h2 class="company_name_heading">STATION LIST</h2>
+          <h2 class="company_name_heading">Station List</h2>
         <br>
        
           
@@ -48,9 +48,19 @@
           {% if station_list.has_prev %}
         
           <a href="{{ url_for('main.display_station_list', page=station_list.prev_num) }}" class="btn btn-primary">Previous</a>
-
-    
         {% endif %}
+
+        {% for num in station_list.iter_pages(left_edge=1, left_current=2, right_current=2, right_edge=1) %}
+          {% if num %}
+            {% if num !=station_list.page %}
+              <a href="{{ url_for('main.display_station_list', page=num, station_id=request.args.get('station_id')) }}">{{ num }}</a>
+            {% else %}
+              <strong>{{ num }}</strong>
+            {% endif %}
+          {% else %}
+            <span>...</span>
+          {% endif %}
+        {% endfor %}
 
         {% if station_list.has_next %}
         

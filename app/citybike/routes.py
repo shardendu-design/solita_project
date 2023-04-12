@@ -37,7 +37,16 @@ def display_single_station_view():
         }
     return render_template('single_station_view.html', single_station_view=single_station_view, station_counts=station_counts)
 
+@main.route('/departuresearch')
+def departure_search():
+    page = request.args.get('page', 1, type=int)
+    station_id = request.args.get('station_id',type=int)
+    if station_id:
+        single_station_wise = Citybike.query.filter_by(departure_station_id=station_id).paginate(page=page, per_page=10)
+    else:
+        single_station_wise = Citybike.query.paginate(page=page, per_page=10)
 
+    return render_template('search_departure_wise.html', single_station_wise=single_station_wise)
     
 @main.app_errorhandler(404)
 def page_not_found(error):

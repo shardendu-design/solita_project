@@ -1,0 +1,74 @@
+{% extends 'layout.html' %}
+
+
+    {% block content %}
+      <hr>
+      <div id="" class="container-fluid">
+        <h5>Please Enter Departure Station Id</h5>
+
+        <form action="{{ url_for('main.departure_search') }}" method="GET">
+            <input type="text" name="station_id">
+            <button type="submit">Search</button>
+      </form>
+        <br>
+
+          <h2 class="company_name_heading">Search Results</h2>
+        <br>
+       
+          
+          <div class="table table-bordered">
+            
+            <table class="table">
+              <thead class="">
+                <tr>
+                  <th scope="col">Departure</th>
+                  <th scope="col">Return</th>
+                  <th scope="col">Departure station id</th>
+                  <th scope="col">Departure station name</th>
+                  <th scope="col">Return station id</th>
+                  <th scope="col">Return station name</th>
+                  <th scope="col">Covered distance (Km)</th>
+                  <th scope="col">Duration (min.)</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for list in single_station_wise  %}
+                     <tr>
+                       <td>{{list.departure}}</td>
+                       <td>{{list.returns}}</td>
+                       <td>{{list.departure_station_id}}</td>
+                       <td>{{list.departure_station_name}}</td>
+                       <td>{{list.return_station_id}}</td>
+                       <td>{{list.return_station_name}}</td>
+                       <td>{{list.covered_distance_km}}</td>
+                       <td>{{list.duration_in_minutes}}</td>
+                     </tr>
+                   {% endfor %}
+             </tbody>
+            </table>  
+          </div>    
+        </div>
+
+      <div>
+        {% if single_station_wise.has_prev %}
+          <a href="{{ url_for('main.departure_search', page=single_station_wise.prev_num, station_id=request.args.get('station_id')) }}">Previous</a>
+        {% endif %}
+      
+        {% for num in single_station_wise.iter_pages(left_edge=1, left_current=2, right_current=2, right_edge=1) %}
+          {% if num %}
+            {% if num != single_station_wise.page %}
+              <a href="{{ url_for('main.departure_search', page=num, station_id=request.args.get('station_id')) }}">{{ num }}</a>
+            {% else %}
+              <strong>{{ num }}</strong>
+            {% endif %}
+          {% else %}
+            <span>...</span>
+          {% endif %}
+        {% endfor %}
+      
+        {% if single_station_wise.has_next %}
+          <a href="{{ url_for('main.departure_search', page=single_station_wise.next_num, station_id=request.args.get('station_id')) }}">Next</a>
+        {% endif %}
+      </div>
+    
+{% endblock %}
