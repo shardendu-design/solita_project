@@ -67,3 +67,14 @@ Validating data before importing merged csv files. There are few steps for valid
 Now the data has been validated so lets save it as a csv file in the local machine.
 
 ![save data csv](images/filtered_data.png)
+
+First connect to postgresql and City Bike data is clean and filtered according to the requirement so lets import into postgresql database.
+
+![import data in database](images/store_data_database.png)
+
+City Bike data has been imported successfully.
+
+![sql solita data](images/postgresql_database.png)
+
+Since sql is case sensitive we need to change column name as sql valid name.
+
