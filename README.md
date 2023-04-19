@@ -18,6 +18,10 @@ The application is about importing data from given links and storing them in a d
 
 #### PostgreSQL
 
+### Code Editor
+
+#### Visual Studio Code
+
 I have used a condo environment to develop a City Bike application instead of virtualenv. The Conda environment is much smoother than virtualenv and supports most of the dependency itself. To be able to run the project there are some required dependencies that should be installed in env and in the system.
 
 #### 1. Install PostgreSQL on Mac( I am using version 10)
@@ -72,9 +76,29 @@ First connect to postgresql and City Bike data is clean and filtered according t
 
 ![import data in database](images/store_data_database.png)
 
-City Bike data has been imported successfully.
+City Bike data has been imported successfully. Since sql is case sensitive we need to change column name as sql valid name.
 
 ![sql solita data](images/postgresql_database.png)
 
-Since sql is case sensitive we need to change column name as sql valid name.
+Lets move to viewing data on web applications, for this first create a scalable architecture in flask so we can manage our files properly and it also enhances the performances and also dristibuated the load so application runs smoothly.
 
+### Here is the Solita City Bike Project scalable web application architecture.
+
+![scalable architecture](images/scalable_arc.png)
+
+### Creating Journey list view 
+
+The journey's view, which shows departure and return stations,covered distance in kilometers and  duration in minutes with pagination each page displaying ten rows.
+
+![list of journeys](images/list_of_journeys.png)
+
+### List of Station
+
+![list of stattions](images/list_of_station.png)
+
+
+### Single Station View
+
+I don't really understand why the station address is given in the task since the station name and station address are the same so I am including the station name and the number of journeys starting from the station and number of journeys ending at the station.
+
+![single station view](images/single_station_view.png)
