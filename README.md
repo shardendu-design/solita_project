@@ -102,3 +102,18 @@ The journey's view, which shows departure and return stations,covered distance 
 I don't really understand why the station address is given in the task since the station name and station address are the same so I am including the station name and the number of journeys starting from the station and number of journeys ending at the station.
 
 ![single station view](images/single_station_view.png)
+
+### Search Departure Station Id Wise
+
+I have added some search options by departure and return id. for example, search with departure with id 76.
+
+![serach departure id](images/search_departure.png)
+
+
+### Search Return Station Id Wise
+
+for example, search with return with id 36.
+
+![serach return id](images/search_return.png)
+
+The application has been tested and it's working fine in my system.
